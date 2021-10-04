@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const querystring = require('querystring');
 const axios = require('axios');
@@ -42,8 +42,8 @@ app.get('/login', (req, res) => {
         response_type: 'code',
         redirect_uri: REDIRECT_URI,
         state: state,
-        scope: scope,
-    }); 
+        scope: scope
+    }) 
 
     res.redirect(`https://accounts.spotify.com/authorize?${queryParams}`);
 });
@@ -58,7 +58,7 @@ app.get('/callback', (req, res) => {
         data: querystring.stringify({
             grant_type: 'authorization_code',
             code: code,
-            redirect_uri: REDIRECT_URI,
+            redirect_uri: REDIRECT_URI
         }),
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
@@ -68,20 +68,21 @@ app.get('/callback', (req, res) => {
         .then(response => {
             if (response.status === 200) {
                 
-                const { access_token, refresh_token } = response.data;
+                const { access_token, refresh_token, expires_in } = response.data;
+
                 const queryParams = querystring.stringify({
                     access_token,
-                    refresh_token
+                    refresh_token, 
+                    expires_in,
                 })
 
                 //redirect to React app
-                res.redirect(`http://localhost:3000/${queryParams}`);
+                res.redirect(`http://localhost:3000/?${queryParams}`);
 
                 // pass along tokens and query params
-
                 
             } else {
-                res.send(`/?${querystring.stringify({ error: 'invalid_token' })}`);
+                res.redirect(`/?${querystring.stringify({ error: 'invalid_token' })}`);
             }
         })
         .catch(error => {
@@ -91,7 +92,6 @@ app.get('/callback', (req, res) => {
 
 
 app.get('/refresh-token', (req, res) => {
-
     const { refresh_token } = req.query;
 
     axios({
@@ -99,7 +99,7 @@ app.get('/refresh-token', (req, res) => {
         url: 'https://accounts.spotify.com/api/token',
         data: querystring.stringify({
             grant_type: 'refresh_token',
-            refresh_token: refresh_token,
+            refresh_token: refresh_token
         }),
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
