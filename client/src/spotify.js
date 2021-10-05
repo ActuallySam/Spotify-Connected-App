@@ -15,7 +15,7 @@ const LOCALSTORAGE_VALUES = {
     expireTime: window.localStorage.getItem(LOCALSTORAGE_KEYS.expireTime),
     timestamp: window.localStorage.getItem(LOCALSTORAGE_KEYS.timestamp),
 };
-
+ 
 /**
  * Clear out all localStorage items we've set and reload the page
  * @returns {void}
@@ -113,5 +113,19 @@ const getAccessToken = () => {
     return false;
 };
 
-
 export const accessToken = getAccessToken();
+
+/**
+ * Axios global requiest headers
+ * https://github.com/axios/axios#global-axios-defaults
+ */
+axios.defaults.baseURL = 'https://api.spotify.com/v1';
+axios.defaults.headers['Authorization'] = `Bearer ${accessToken}`;
+axios.defaults.headers['Content-Type'] = 'application/json';
+
+/** 
+ * Get Current User's Profile
+ * http://developer.spotify.com/documentation/web-api/reference/#edupoint-get-current-users-profile
+ * @returns {Promise}
+ */
+export const getCurrentUserProfile = () => axios.get("/me");
