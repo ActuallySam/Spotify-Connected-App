@@ -23,7 +23,7 @@ const TopArtists = () => {
             {topArtists && (
                 <SectionWrapper title="Top Artists" breadcrumb="true">
                     <TimeRangeButtons activeRange={activeRange} setActiveRange={setActiveRange} />
-                    <ArtistsGrid artists={topArtists.items.slice(0, 10)} />
+                    <ArtistsGrid artists={topArtists.items} />
                 </SectionWrapper>
             )}
         </main>
