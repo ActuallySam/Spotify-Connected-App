@@ -127,5 +127,24 @@ axios.defaults.headers['Content-Type'] = 'application/json';
  * Get Current User's Profile
  * http://developer.spotify.com/documentation/web-api/reference/#edupoint-get-current-users-profile
  * @returns {Promise}
- */
+*/
 export const getCurrentUserProfile = () => axios.get("/me");
+
+/** 
+ * Get a list of Current User's Playlist
+ * http://developer.spotify.com/documentation/web-api/reference/#edupoint-get-a-list-of-current-users-playlists
+ * @returns {Promise}
+*/
+export const getCurrentUserPlaylists = (limit = 20) => {
+    return axios.get(`/me/playlists?limit=${limit}`);
+};
+
+/** 
+ * Get a list of Current User's Playlist
+ * http://developer.spotify.com/documentation/web-api/reference/#edupoint-get-users-top-artists-and-tracks
+ * @param {string} time_range - 'short_term' (last 4 weeks) 'medium_term' (last 6 months) or 'long_term' (calculated from several years of data and including all new data as it becomes available). Defaults to 'short_term'
+ * @returns {Promise}
+*/
+export const getTopArtists = (time_range = 'short_term') => {
+    return axios.get(`/me/top/artists?time_range=${time_range}`);
+};
