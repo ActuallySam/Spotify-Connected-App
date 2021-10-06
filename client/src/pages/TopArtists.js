@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { catchErrors } from "../utils";
 import { ArtistsGrid, SectionWrapper, TimeRangeButtons } from "../components";
-import { getCurrentUserProfile, getCurrentUserPlaylists, getTopArtists, getTopTracks } from '../spotify';
+import { getTopArtists } from '../spotify';
 
 const TopArtists = () => {
     const [topArtists, setTopArtists] = useState(null);
