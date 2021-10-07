@@ -30,7 +30,7 @@ const Profile = () => {
 
   return (
     <>
-      {profile && (
+      {profile ? (
         <StyledHeader type="user">
         <div className="header__inner">
           {profile.images.length && profile.images[0].url && (
@@ -50,6 +50,8 @@ const Profile = () => {
           </div>
         </div>
       </StyledHeader>
+      ) : (
+        <Loader />
       )}
 
       {topArtists && topTracks && playlists ? (
