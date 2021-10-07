@@ -103,7 +103,7 @@ const Playlist = () => {
 
   return (
     <>
-      {playlist && (
+      {playlist ? (
         <>
           <StyledHeader>
             <div className="header__inner">
@@ -147,6 +147,8 @@ const Playlist = () => {
             </SectionWrapper>
           </main>
         </>
+      ) : (
+          <Loader />
       )}
     </>
   );
