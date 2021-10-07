@@ -1,1 +1,1 @@
-# Spotify-Connected-App
+# Spotify-Profile-App
