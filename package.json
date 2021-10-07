@@ -1,11 +1,8 @@
 {
-  "name": "spotify-app",
+  "name": "spotify-profile-app",
   "version": "1.0.0",
   "description": "A webapp that lets you analyse your spotify profile and gives an overview of what you are interested in",
   "main": "index.js",
-  "engines": {
-    "node": "14.17.6"
-  },
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
