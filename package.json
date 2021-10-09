@@ -1,10 +1,10 @@
 {
-  "name": "spotify-profile-webapp",
+  "name": "spotify-personal-profile",
   "version": "1.0.0",
   "description": "A webapp that lets you analyse your spotify profile and gives an overview of what you are interested in",
   "main": "index.js",
   "engines": {
-    "node": "14.17.6"
+    "node": "14.17"
   },
   "cacheDirectories": [
     "node_modules",
@@ -19,7 +19,7 @@
     "start_server": "node index.js"
   },
   "keywords": [],
-  "author": "Samarth",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.4",
