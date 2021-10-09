@@ -4,7 +4,7 @@
   "description": "A webapp that lets you analyse your spotify profile and gives an overview of what you are interested in",
   "main": "index.js",
   "engines": {
-    "node": "14.17"
+    "node": "14.17.6"
   },
   "cacheDirectories": [
     "node_modules",
