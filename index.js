@@ -58,7 +58,7 @@ app.get('/login', (req, res) => {
 });
 
 
-app.get('/callback', (req, res) => {
+app.get('/dashboard', (req, res) => {
     const code = req.query.code || null;
 
     axios({
