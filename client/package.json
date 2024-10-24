@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.13.2"
+    "babel-plugin-styled-components": "^1.13.2",
+    "@babel/core": "^7.16.0"
   }
 }
